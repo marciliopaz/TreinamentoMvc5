@@ -1,0 +1,48 @@
+﻿@model WebApplication1.Models.Dvd
+
+@{
+    ViewBag.Title = "Apagar DVD";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Você tem certeza que deseja apagar este item?</h3>
+<div>
+    @*<h4>Dvd</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Apagar" class="btn btn-default" /> |
+            @Html.ActionLink("Retorna para lista", "Index")
+        </div>
+    }
+</div>

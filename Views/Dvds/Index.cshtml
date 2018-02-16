@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebApplication1.Models.Dvd>
+
+@{
+    ViewBag.Title = "DVDs Cadastrados";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Novo DVD", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observacao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IDDvd }) |
+            @Html.ActionLink("Detalhar", "Details", new { id=item.IDDvd }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.IDDvd })
+        </td>
+    </tr>
+}
+
+</table>
+
+<hr />
+@Html.Partial("_PromocaoDVD")
